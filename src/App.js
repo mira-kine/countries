@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { getCountries } from './services/countries';
-// import Flags from './components/Flags';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -44,9 +43,14 @@ function App() {
           <option value="Asia">Asia</option>
         </select>
         {filterCountries().map((country) => (
-          <p key={country.i}>
-            {country.name} : {country.continent}
-          </p>
+          <div key={country.id}>
+            <div>
+              {country.name} : {country.continent}
+            </div>
+            <div>
+              <img src={`https://flagcdn.com/84x63/${country.iso2.toLowerCase()}.png`} />
+            </div>
+          </div>
         ))}
       </div>
     </>

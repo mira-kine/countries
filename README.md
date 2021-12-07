@@ -23,3 +23,12 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+- [x] grab data from supabase in countries.js
+- [x] make sure it is working
+- [x] useEffect hook with a dependency array to retrieve data when component first mounts -> in app.js to render
+- [x] useState to manage component state
+- [ ] loading state when data is loading
+- [ ] search bar by country name
+- [ ] option bar to filter by continent
+- [ ] Netfliy

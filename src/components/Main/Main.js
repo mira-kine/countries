@@ -16,6 +16,7 @@ export default function Main() {
     fetchData();
   }, []);
 
+  // when filtered, sort alphabetically using .sort
   function filterCountries() {
     return countries.filter((item) => {
       return item.name.includes(query) && (item.continent === continent || continent === 'All');
@@ -44,7 +45,7 @@ export default function Main() {
           <option value="South America">South America</option>
           <option value="Asia">Asia</option>
         </select>
-        <button value={sort} onClick={setSort}>
+        <button value={sort} onClick={() => setSort((prevState) => !prevState)}>
           sort A-Z
         </button>
         <div className="flags">

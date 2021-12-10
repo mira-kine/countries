@@ -7,14 +7,24 @@ export default function Main() {
   const [query, setQuery] = useState('');
   const [continent, setContinent] = useState('All');
   const [sort, setSort] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let timer;
     const fetchData = async () => {
       const data = await getCountries();
       setCountries(data);
+      timer = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     };
-    fetchData();
-  }, []);
+    if (loading) {
+      fetchData();
+    }
+    return () => {
+      clearInterval(timer);
+    };
+  }, [loading]);
 
   // when filtered, sort alphabetically using .sort
   function filterCountries() {
@@ -51,6 +61,7 @@ export default function Main() {
         <button value={sort} onClick={() => setSort((prevState) => !prevState)}>
           sort A-Z
         </button>
+        <span className="loader"></span>
         <div className="flags">
           {filterCountries().map((country) => (
             <div key={country.id}>

@@ -19,7 +19,10 @@ export default function Main() {
   // when filtered, sort alphabetically using .sort
   function filterCountries() {
     return countries.filter((item) => {
-      return item.name.includes(query) && (item.continent === continent || continent === 'All');
+      return (
+        item.name.toLowerCase().includes(query) &&
+        (item.continent === continent || continent === 'All')
+      );
     });
   }
 

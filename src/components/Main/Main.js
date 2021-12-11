@@ -26,14 +26,20 @@ export default function Main() {
     };
   }, [loading]);
 
-  // when filtered, sort alphabetically using .sort
   function filterCountries() {
-    return countries.filter((item) => {
+    let filteredCountries = countries.filter((item) => {
       return (
         item.name.toLowerCase().includes(query) &&
         (item.continent === continent || continent === 'All')
       );
     });
+    if (sort === true) {
+      return filteredCountries.sort((a, b) => {
+        return a.name > b.name ? 1 : -1;
+      });
+    } else {
+      return filteredCountries;
+    }
   }
 
   return (

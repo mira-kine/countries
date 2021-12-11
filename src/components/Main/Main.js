@@ -35,7 +35,7 @@ export default function Main() {
     });
     if (sort === true) {
       return filteredCountries.sort((a, b) => {
-        return a.name > b.name ? 1 : -1;
+        return a.length > b.length ? 1 : -1;
       });
     } else {
       return filteredCountries;
